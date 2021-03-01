@@ -28,7 +28,7 @@ public class Task1 {
 	
 	public static void doTask(String filename) {
 		try {
-			System.out.println(numberOfWords(filename));
+			System.out.println("Number of words in file \"" + filename + "\": " + numberOfWords(filename));
 		} catch(Exception e) {
 			System.err.println("Exception! " + e.getMessage());
 		}
