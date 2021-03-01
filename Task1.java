@@ -23,10 +23,10 @@ public class Task1 {
 	}
 	
 	public static void main(String[] args) {
-		printResults("file.txt");		
+		doTask("file.txt");		
 	}
 	
-	public static void printResults(String filename) {
+	public static void doTask(String filename) {
 		try {
 			System.out.println(numberOfWords(filename));
 		} catch(Exception e) {
