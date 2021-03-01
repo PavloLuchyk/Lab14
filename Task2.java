@@ -8,13 +8,12 @@ import java.io.FileWriter;
 
 public class Task2 {
 	public static void unsplit(String sourcePrefix,String destination) throws IOException {
-		int i = 0;
+		int readed, i = 0;
 		char[] cbuf = new char[512];
 		try(FileWriter fw = new FileWriter(destination)) {
 				while (Files.exists(Paths.get(sourcePrefix+"."+String.format("%03d",i)))) {
 					fw.append(sourcePrefix+"."+String.format("%03d",i)+"\n");
 					try (FileReader fr = new FileReader(sourcePrefix+"."+String.format("%03d",i))){
-						int readed;
 						while ((readed = fr.read(cbuf)) != -1) {
 							fw.append(new String(cbuf),0,readed);
 						}
@@ -36,9 +35,4 @@ public class Task2 {
 			System.err.println("Exception! " + e.getMessage());
 		}
 	}
-	
-	
-	
-	
-
 }
