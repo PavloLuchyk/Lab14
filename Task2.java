@@ -10,19 +10,18 @@ public class Task2 {
 	public static void unsplit(String sourcePrefix,String destination) throws IOException {
 		int i = 0;
 		char[] cbuf = new char[512];
-		try(FileWriter wr = new FileWriter(destination)) {
+		try(FileWriter fw = new FileWriter(destination)) {
 				while (Files.exists(Paths.get(sourcePrefix+"."+String.format("%03d",i)))) {
-					wr.append(sourcePrefix+"."+String.format("%03d",i)+"\n");
-					try (FileReader fis = new FileReader(sourcePrefix+"."+String.format("%03d",i))){
+					fw.append(sourcePrefix+"."+String.format("%03d",i)+"\n");
+					try (FileReader fr = new FileReader(sourcePrefix+"."+String.format("%03d",i))){
 						int readed;
-						while ((readed = fis.read(cbuf)) != -1) {
-							wr.append(new String(cbuf),0,readed);
+						while ((readed = fr.read(cbuf)) != -1) {
+							fw.append(new String(cbuf),0,readed);
 						}
 					}
-					wr.append("\n\n");
+					fw.append("\n\n");
 					i++;
 				}
-				wr.flush();
 		}		
 	}
 	
