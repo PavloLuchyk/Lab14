@@ -12,11 +12,11 @@ public class Task1 {
 		}
 		long wordCount=0;
 		try(BufferedReader br = new BufferedReader(new FileReader(filename))){
-			String string,str="";
+			String string, fileContent="";
 			while((string = br.readLine()) != null) {
-				str += string +" ";
+				fileContent += string +" ";
 			}
-			String[] words = str.split("\\s+");
+			String[] words = fileContent.split("\\s+");
 			wordCount = words.length;
 		} 
 		return wordCount;
